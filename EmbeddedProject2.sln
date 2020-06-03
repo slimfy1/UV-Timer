@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Timer", "MDK-ARM\Timer.vcxproj", "{A2BBC41B-45AD-4416-B473-B1486AF16A3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|VisualGDB = Debug|VisualGDB
+		Release|VisualGDB = Release|VisualGDB
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2BBC41B-45AD-4416-B473-B1486AF16A3B}.Debug|VisualGDB.ActiveCfg = Debug|VisualGDB
+		{A2BBC41B-45AD-4416-B473-B1486AF16A3B}.Debug|VisualGDB.Build.0 = Debug|VisualGDB
+		{A2BBC41B-45AD-4416-B473-B1486AF16A3B}.Release|VisualGDB.ActiveCfg = Release|VisualGDB
+		{A2BBC41B-45AD-4416-B473-B1486AF16A3B}.Release|VisualGDB.Build.0 = Release|VisualGDB
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC8DEC5D-6B3F-421A-BC9A-630B8F2614CD}
+	EndGlobalSection
+EndGlobal
