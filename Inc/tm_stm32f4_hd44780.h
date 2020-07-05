@@ -124,34 +124,34 @@ K		GND				Ground for back light
 /* Control pins, can be overwritten */
 /* RS - Register select pin */
 #ifndef HD44780_RS_PIN
-#define HD44780_RS_PORT				GPIOB
+#define HD44780_RS_PORT				GPIOA
 #define HD44780_RS_PIN				GPIO_ODR_ODR3
 #endif
 /* E - Enable pin */
 #ifndef HD44780_E_PIN
-#define HD44780_E_PORT				GPIOB
-#define HD44780_E_PIN				GPIO_ODR_ODR4
+#define HD44780_E_PORT				GPIOA
+#define HD44780_E_PIN				GPIO_ODR_ODR5
 #endif
 /* Data pins */
 /* D4 - Data 4 pin */
 #ifndef HD44780_D4_PIN
-#define HD44780_D4_PORT				GPIOB
-#define HD44780_D4_PIN				GPIO_ODR_ODR5
+#define HD44780_D4_PORT				GPIOA
+#define HD44780_D4_PIN				GPIO_ODR_ODR6
 #endif
 /* D5 - Data 5 pin */
 #ifndef HD44780_D5_PIN
-#define HD44780_D5_PORT				GPIOB
-#define HD44780_D5_PIN				GPIO_ODR_ODR6
+#define HD44780_D5_PORT				GPIOA
+#define HD44780_D5_PIN				GPIO_ODR_ODR7
 #endif
 /* D6 - Data 6 pin */
 #ifndef HD44780_D6_PIN
 #define HD44780_D6_PORT				GPIOB
-#define HD44780_D6_PIN				GPIO_ODR_ODR7
+#define HD44780_D6_PIN				GPIO_ODR_ODR0
 #endif
 /* D7 - Data 7 pin */
 #ifndef HD44780_D7_PIN
 #define HD44780_D7_PORT				GPIOB
-#define HD44780_D7_PIN				GPIO_ODR_ODR8
+#define HD44780_D7_PIN				GPIO_ODR_ODR1
 #endif
 
 /**

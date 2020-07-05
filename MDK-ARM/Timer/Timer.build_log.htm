@@ -17,34 +17,36 @@ Library Manager: ArmAr.exe V5.06 update 6 (build 750)
 Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
 CPU DLL:         SARMCM3.DLL V5.29.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Target DLL:      Segger\JL2CM3.dll V2.99.36.0
 Dialog DLL:      TCM.DLL V1.36.5.0
  
 <h2>Project:</h2>
 C:\Users\user\STM32_Projects\Timer\MDK-ARM\Timer.uvprojx
-Project File Date:  06/03/2020
+Project File Date:  07/05/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Timer'
+compiling stm32f1xx_it.c...
+../Inc/STLib.h(14): warning:  #1295-D: Deprecated declaration TIM_EN - give arg types
+  void TIM_EN();
+../Src/stm32f1xx_it.c: 1 warning, 0 errors
 compiling main.c...
 ../Inc/STLib.h(14): warning:  #1295-D: Deprecated declaration TIM_EN - give arg types
   void TIM_EN();
-../Src/main.c(138): warning:  #223-D: function "sprintf" declared implicitly
-  		sprintf(setTime, "%d", str);
-../Src/main.c: 2 warnings, 0 errors
+../Src/main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=5328 RO-data=268 RW-data=44 ZI-data=1092  
+Program Size: Code=5744 RO-data=268 RW-data=44 ZI-data=1156  
 FromELF: creating hex file...
 "Timer\Timer.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.6.0.pack
-                ARM.CMSIS.5.6.0
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.3.0
+   * Component: CORE Version: 5.4.0
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
@@ -53,13 +55,13 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Timer
-  C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+  C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
   C:\Users\user\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.3.0
-Build Time Elapsed:  00:00:01
+   * Component: ARM::CMSIS:CORE:5.4.0
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

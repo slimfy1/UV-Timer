@@ -38,3 +38,5 @@ timer\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h
 timer\main.o: ../Inc/STLib.h
 timer\main.o: ../Inc/tm_stm32f4_hd44780.h
 timer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+timer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+timer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

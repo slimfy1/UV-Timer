@@ -37,4 +37,5 @@ timer\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h
 timer\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h
 timer\stm32f1xx_it.o: ../Inc/stm32f1xx_it.h
 timer\stm32f1xx_it.o: ../Inc/STLib.h
+timer\stm32f1xx_it.o: ../Inc/tm_stm32f4_hd44780.h
 timer\stm32f1xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

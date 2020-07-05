@@ -24,7 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <STLib.h>
-
+#include "tm_stm32f4_hd44780.h"
 #include "stdbool.h"
 /* USER CODE END Includes */
 
@@ -66,7 +66,7 @@ uint8_t minute = 0;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -208,61 +208,15 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles EXTI line0 interrupt.
+  * @brief This function handles TIM3 global interrupt.
   */
-void EXTI0_IRQHandler(void)
+void TIM3_IRQHandler(void)
 {
-  /* USER CODE BEGIN EXTI0_IRQn 0 */
-	//uint8_t curTIm = SysTick->VAL;
-  /* USER CODE END EXTI0_IRQn 0 */
-  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_0) != RESET)
-  {
-    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_0);
-    /* USER CODE BEGIN LL_EXTI_LINE_0 */
-	  delay_ms(50);
-	  if (!READ_BIT(GPIOB->IDR, GPIO_IDR_IDR0) && !start)
-	  {
-		  setTime++;
-	  }
-	  
-    /* USER CODE END LL_EXTI_LINE_0 */
-  }
-  /* USER CODE BEGIN EXTI0_IRQn 1 */
+  /* USER CODE BEGIN TIM3_IRQn 0 */
 
-  /* USER CODE END EXTI0_IRQn 1 */
-}
-
-/**
-  * @brief This function handles EXTI line1 interrupt.
-  */
-void EXTI1_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI1_IRQn 0 */
-  //int
-  /* USER CODE END EXTI1_IRQn 0 */
-  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_1) != RESET)
-  {
-    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_1);
-    /* USER CODE BEGIN LL_EXTI_LINE_1 */
-	  delay_ms(50);
-	  if (!READ_BIT(GPIOB->IDR, GPIO_IDR_IDR1) && !start)
-	  {
-		  setTime--;
-	  }
-    /* USER CODE END LL_EXTI_LINE_1 */
-  }
-  /* USER CODE BEGIN EXTI1_IRQn 1 */
-
-  /* USER CODE END EXTI1_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM2 global interrupt.
-  */
-void TIM2_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM2_IRQn 0 */
-
+  /* USER CODE END TIM3_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_IRQn 1 */
 	if (start)
 	{
 		switch (tick++) 
@@ -288,11 +242,7 @@ void TIM2_IRQHandler(void)
 		second = 0;
 	}
 	
-  /* USER CODE END TIM2_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim2);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
-
-  /* USER CODE END TIM2_IRQn 1 */
+  /* USER CODE END TIM3_IRQn 1 */
 }
 
 /**
@@ -303,16 +253,46 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
 
   /* USER CODE END EXTI15_10_IRQn 0 */
-  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_11) != RESET)
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_12) != RESET)
   {
-    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_11);
-    /* USER CODE BEGIN LL_EXTI_LINE_11 */
-	  delay_ms(20);
-	  if (!READ_BIT(GPIOB->IDR, GPIO_IDR_IDR11) && !start)
-	  {
-		  start = true;
-	  }
-    /* USER CODE END LL_EXTI_LINE_11 */
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_12);
+    /* USER CODE BEGIN LL_EXTI_LINE_12 */
+		if(!start)
+		{
+			setTime++;
+		}
+    /* USER CODE END LL_EXTI_LINE_12 */
+  }
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_13) != RESET)
+  {
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_13);
+    /* USER CODE BEGIN LL_EXTI_LINE_13 */
+		if(!start)
+		{
+			setTime--;
+			if(setTime<=0)
+			{
+				setTime = 0;
+			}
+		}
+
+    /* USER CODE END LL_EXTI_LINE_13 */
+  }
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_14) != RESET)
+  {
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_14);
+    /* USER CODE BEGIN LL_EXTI_LINE_14 */
+		if(!start)
+		{
+			SET_BIT(TIM2->CCER, TIM_CCER_CC3E);
+			start = true;
+		}
+		while(start && !READ_BIT(GPIOB->IDR, GPIO_IDR_IDR13))
+		{
+			start = false;
+			CLEAR_BIT(TIM2->CCER, TIM_CCER_CC3E);
+		}
+    /* USER CODE END LL_EXTI_LINE_14 */
   }
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 

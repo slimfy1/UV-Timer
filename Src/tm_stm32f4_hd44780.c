@@ -41,10 +41,10 @@ static void TM_HD44780_CursorSet(uint8_t col, uint8_t row);
 static HD44780_Options_t HD44780_Opts;
 
 /* Pin definitions */
-#define HD44780_RS_LOW              CLEAR_BIT(GPIOB->ODR, GPIO_ODR_ODR3)
-#define HD44780_RS_HIGH             SET_BIT(GPIOB->ODR, GPIO_ODR_ODR3)
-#define HD44780_E_LOW               CLEAR_BIT(GPIOB->ODR, GPIO_ODR_ODR4)
-#define HD44780_E_HIGH              SET_BIT(GPIOB->ODR, GPIO_ODR_ODR4)
+#define HD44780_RS_LOW              CLEAR_BIT(GPIOA->ODR, GPIO_ODR_ODR3)
+#define HD44780_RS_HIGH             SET_BIT(GPIOA->ODR, GPIO_ODR_ODR3)
+#define HD44780_E_LOW               CLEAR_BIT(GPIOA->ODR, GPIO_ODR_ODR5)
+#define HD44780_E_HIGH              SET_BIT(GPIOA->ODR, GPIO_ODR_ODR5)
 
 #define HD44780_E_BLINK             HD44780_E_HIGH; HD44780_Delay(20); HD44780_E_LOW; HD44780_Delay(20)
 #define HD44780_Delay(x)            delay_ms(x)
@@ -113,11 +113,11 @@ void TM_HD44780_Init(uint8_t cols, uint8_t rows) {
 	
 	/* Second try */
 	TM_HD44780_Cmd4bit(0x03);
-	HD44780_Delay(45);
+	HD44780_Delay(10);
 	
 	/* Third goo! */
 	TM_HD44780_Cmd4bit(0x03);
-	HD44780_Delay(45);
+	HD44780_Delay(10);
 	
 	/* Set 4-bit interface */
 	TM_HD44780_Cmd4bit(0x02);
@@ -138,12 +138,12 @@ void TM_HD44780_Init(uint8_t cols, uint8_t rows) {
 	TM_HD44780_Cmd(HD44780_ENTRYMODESET | HD44780_Opts.DisplayMode);
 
 	/* Delay */
-	HD44780_Delay(45);
+	HD44780_Delay(10);
 }
 
 void TM_HD44780_Clear(void) {
 	TM_HD44780_Cmd(HD44780_CLEARDISPLAY);
-	HD44780_Delay(30);
+	HD44780_Delay(10);
 }
 
 void TM_HD44780_Puts(uint8_t x, uint8_t y, char* str) {
